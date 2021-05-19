@@ -90,10 +90,10 @@ vaccine="none"
 #headers for requests  Authorization header need to be changed for each person
 headers = {
 'Host': 'fp.swaraksha.gov.in',
-'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjEzNDM5MTksImlhdCI6MTYyMTI1NzUxOSwic3ViIjoiKzkxNzAxNDkwODMyNyIsInVzZXJuYW1lIjoiZmJmNjZlMTAtNjRiZi00NDgwLTgwOTUtMjhkZjQyNjY0ZmE3In0.4I6nDP36_7nPhgSPBus0tsNglGw7ppNdcE_c34Y0-UA',
-'Pt': '9cf23ec2-d83c-4778-aca5-d7fb64ae1b2d',
-'Ver': '1057',
-'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0.1; SM-J500F Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.152 Mobile Safari/537.36',
+'Authorization': '',
+'Pt': '',
+'Ver': '',
+'User-Agent': '',
 'Content-Type': 'text/plain;charset=UTF-8',
 'Accept': '*/*',
 'Origin': 'https://web.swaraksha.gov.in',
