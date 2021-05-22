@@ -28,9 +28,9 @@ def get_states(token,headers):
     data_state = data_state.json()
     data_state = json.loads(data_state['message'])
     print("state_id state_name")
-    for i in data['states']:
+    for i in data_state['states']:
         print(i['state_id'],i['state_name'])
-    state_id = int(input("Enter state id : "))
+    state_id = str(input("Enter state id : "))
     return state_id
 
 def get_districts(token,state_id,headers):
@@ -39,9 +39,9 @@ def get_districts(token,state_id,headers):
     data_district = data_district.json()
     data_district = json.loads(data_district['message'])
     print("district_id district_name")
-    for i in data['districts']:
+    for i in data_district['districts']:
         print(i['district_id'],i['district_name'])
-    district_id = int(input("Enter districts id : "))
+    district_id = str(input("Enter districts id : "))
     return district_id
 
 def get_prefferd_centers(token,headers,district_id,date):
@@ -50,7 +50,7 @@ def get_prefferd_centers(token,headers,district_id,date):
     data_centers = httpx.get(get_centers, headers=headers)
     data_centers = data_centers.json()
     data_centers = json.loads(data_centers['message'])
-    for i in data['centers']:
+    for i in data_centers['centers']:
         if(i['sessions'][0]['min_age_limit'] == 18):
             print(i['name'])
             a = input("Press Y if you want to add prefferd center list")
@@ -80,6 +80,7 @@ print("")
 #Initialising variables
 mob = str(input("Enter Mobile number:"))
 mob_plus = "+91" + mob
+mob_last_4 = mob[-4:]
 past_date = "18-05-2021"    #change this
 book_date = "19-05-2021"    #change this
 center_id="none"
@@ -139,7 +140,7 @@ while True:
                     center_name = i['name']
                     vaccine=i['sessions'][0]['vaccine']
                 
-                    post_shedule_app = {"ben_list":beneficiaries,"center_id":center_id,"date":book_date,"slot_id":slot_id,"center_name":center_name,"token":token,"time_preference":"10:00AM-11:00AM","state":"Rajasthan","district":"Udaipur","ben_mobile":"8327","as_owner_number":mob_plus,"vaccine":vaccine,"dose":1}
+                    post_shedule_app = {"ben_list":beneficiaries,"center_id":center_id,"date":book_date,"slot_id":slot_id,"center_name":center_name,"token":token,"time_preference":"10:00AM-11:00AM","state":"Rajasthan","district":"Udaipur","ben_mobile":mob_last_4,"as_owner_number":mob_plus,"vaccine":vaccine,"dose":1}
                     r4= requests.post(shedule_app, headers=headers, json=post_shedule_app)
                     print(r4.text)
                     print("Vaccine Booked","Thaks for using my bot","Regards Priyansh Jain", sep="/n")
